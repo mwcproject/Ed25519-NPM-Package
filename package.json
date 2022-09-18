@@ -5,11 +5,22 @@
 	"main": "./index.js",
 	"files": [
 		"*",
-		"!main.cpp"
+		"!main.cpp",
+		"!crypto_hash_sha512.c",
+		"!crypto_hash_sha512.h",
+		"!crypto_int32.h",
+		"!crypto_int64.h",
+		"!crypto_sign.h",
+		"!crypto_uint32.h",
+		"!crypto_uint64.h",
+		"!crypto_verify_32.c",
+		"!crypto_verify_32.h",
+		"!randombytes.c",
+		"!randombytes.h"
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/NicolasFlamel1/Ed25519.git"
+		"url": "git+https://github.com/NicolasFlamel1/Ed25519-NPM-Package.git"
 	},
 	"keywords": [
 		"Ed25519"
@@ -17,7 +28,7 @@
 	"author": "Nicolas Flamel",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/NicolasFlamel1/Ed25519/issues"
+		"url": "https://github.com/NicolasFlamel1/Ed25519-NPM-Package/issues"
 	},
 	"dependencies": {
 		"@nicolasflamel/ed25519-wasm": "^0.0.20"
