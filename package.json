@@ -1,6 +1,6 @@
 {
 	"name": "@nicolasflamel/ed25519",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "NPM package for parts of SUPERCOP's Ed25519 implementation",
 	"main": "./index.js",
 	"files": [
@@ -34,7 +34,7 @@
 		"@nicolasflamel/ed25519-wasm": "^0.0.20"
 	},
 	"optionalDependencies": {
-		"@nicolasflamel/ed25519-native": "^0.0.16",
+		"@nicolasflamel/ed25519-native": "^0.0.17",
 		"@nicolasflamel/ed25519-react": "^0.0.6"
 	}
 }

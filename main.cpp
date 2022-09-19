@@ -2,6 +2,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <cstring>
+#include <vector>
 
 // Check if using Emscripten
 #ifdef __EMSCRIPTEN__
@@ -131,10 +132,10 @@ bool sign(uint8_t *signature, const uint8_t *message, size_t messageSize, const 
 	}
 	
 	// Check if signing the message failed
-	uint8_t fullSignature[crypto_sign_BYTES + messageSize];
+	vector<uint8_t> fullSignature(crypto_sign_BYTES + messageSize);
 	long long unsigned int signatureLength;
 	
-	if(crypto_sign(fullSignature, &signatureLength, message, messageSize, fullSecretKey)) {
+	if(crypto_sign(fullSignature.data(), &signatureLength, message, messageSize, fullSecretKey)) {
 	
 		// Clear memory
 		explicit_bzero(fullSecretKey, sizeof(fullSecretKey));
@@ -144,7 +145,7 @@ bool sign(uint8_t *signature, const uint8_t *message, size_t messageSize, const 
 	}
 	
 	// Copy full signature to the signature
-	memcpy(signature, fullSignature, crypto_sign_BYTES);
+	memcpy(signature, fullSignature.data(), crypto_sign_BYTES);
 	
 	// Clear memory
 	explicit_bzero(fullSecretKey, sizeof(fullSecretKey));
@@ -171,15 +172,15 @@ bool verify(const uint8_t *message, size_t messageSize, const uint8_t *signature
 	}
 
 	// Get the full signature
-	uint8_t fullSignature[crypto_sign_BYTES + messageSize];
-	memcpy(fullSignature, signature, crypto_sign_BYTES);
+	vector<uint8_t> fullSignature(crypto_sign_BYTES + messageSize);
+	memcpy(fullSignature.data(), signature, crypto_sign_BYTES);
 	memcpy(&fullSignature[crypto_sign_BYTES], message, messageSize);
 	
 	// Check if verifying the message failed
-	uint8_t verifiedMessage[messageSize];
+	vector<uint8_t> verifiedMessage(messageSize);
 	long long unsigned int verifiedMessageLength;
 	
-	if(crypto_sign_open(verifiedMessage, &verifiedMessageLength, fullSignature, sizeof(fullSignature), publicKey)) {
+	if(crypto_sign_open(verifiedMessage.data(), &verifiedMessageLength, fullSignature.data(), fullSignature.size(), publicKey)) {
 	
 		// Return false
 		return false;
