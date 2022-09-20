@@ -16,7 +16,8 @@
 		"!crypto_verify_32.c",
 		"!crypto_verify_32.h",
 		"!randombytes.c",
-		"!randombytes.h"
+		"!randombytes.h",
+		"!tests.js"
 	],
 	"repository": {
 		"type": "git",
