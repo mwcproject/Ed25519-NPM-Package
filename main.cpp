@@ -172,12 +172,12 @@ bool verify(const uint8_t *message, size_t messageSize, const uint8_t *signature
 	}
 
 	// Get the full signature
-	vector<uint8_t> fullSignature(crypto_sign_BYTES + messageSize);
-	memcpy(fullSignature.data(), signature, crypto_sign_BYTES);
-	memcpy(&fullSignature[crypto_sign_BYTES], message, messageSize);
+	vector<uint8_t> fullSignature;
+	fullSignature.insert(fullSignature.cend(), signature, signature + crypto_sign_BYTES);
+	fullSignature.insert(fullSignature.cend(), message, message + messageSize);
 	
 	// Check if verifying the message failed
-	vector<uint8_t> verifiedMessage(messageSize);
+	vector<uint8_t> verifiedMessage(fullSignature.size());
 	long long unsigned int verifiedMessageLength;
 	
 	if(crypto_sign_open(verifiedMessage.data(), &verifiedMessageLength, fullSignature.data(), fullSignature.size(), publicKey)) {
