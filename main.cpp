@@ -106,7 +106,6 @@ size_t signatureSize() {
 	return crypto_sign_BYTES;
 }
 
-
 // Sign
 bool sign(uint8_t *signature, const uint8_t *message, size_t messageSize, const uint8_t *secretKey, size_t secretKeySize) {
 
