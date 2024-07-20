@@ -5,7 +5,7 @@
 try {
 
 	// Export Ed25519 React Native module
-	module["exports"] = require("@nicolasflamel/ed25519-react");
+	module["exports"] = require("@mwcproject/ed25519-react");
 }
 
 // Catch errors
@@ -15,13 +15,13 @@ catch(error) {
 	try {
 	
 		// Export Ed25519 Node.js addon
-		module["exports"] = require("@nicolasflamel/ed25519-native");
+		module["exports"] = require("@mwcproject/ed25519-native");
 	}
 	
 	// Catch errors
 	catch(error) {
 	
 		// Export Ed25519 WASM wrapper
-		module["exports"] = require("@nicolasflamel/ed25519-wasm");
+		module["exports"] = require("@mwcproject/ed25519-wasm");
 	}
 }

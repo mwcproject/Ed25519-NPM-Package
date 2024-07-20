@@ -1,5 +1,5 @@
 {
-	"name": "@nicolasflamel/ed25519",
+	"name": "@mwcproject/ed25519",
 	"version": "0.0.5",
 	"description": "NPM package for parts of SUPERCOP's Ed25519 implementation",
 	"main": "./index.js",
@@ -21,7 +21,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/NicolasFlamel1/Ed25519-NPM-Package.git"
+		"url": "git+https://github.com/mwcproject/Ed25519-NPM-Package.git"
 	},
 	"keywords": [
 		"Ed25519"
@@ -29,7 +29,7 @@
 	"author": "Nicolas Flamel",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/NicolasFlamel1/Ed25519-NPM-Package/issues"
+		"url": "https://github.com/mwcproject/Ed25519-NPM-Package/issues"
 	},
 	"dependencies": {
 		"@nicolasflamel/ed25519-wasm": "^0.0.22"

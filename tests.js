@@ -6,9 +6,9 @@
 
 // Modules
 const MODULES = [
-	"@nicolasflamel/ed25519-native",
-	"@nicolasflamel/ed25519-wasm",
-	"@nicolasflamel/ed25519-wasm.asmjs"
+	"@mwcproject/ed25519-native",
+	"@mwcproject/ed25519-wasm",
+	"@mwcproject/ed25519-wasm.asmjs"
 ];
 
 // Tests
